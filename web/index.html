@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>DeepLab</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/theme/material-darker.min.css">
+
+
+    <script src="qrc:///qtwebchannel/qwebchannel.js"></script>
+</head>
+
+<body>
+<button id="themeToggle">Toggle Theme</button>
+
+<div id="header">
+    <div>
+        <h1>DeepLab</h1>
+        <p>Drag nodes from palette • Double-click node and drag to create edges</p>
+    </div>
+</div>
+
+<div id="controls">
+    <button id="analyseBtn">Analyse</button>
+</div>
+
+<div id="main">
+
+    <!-- NODE PALETTE -->
+    <div id="palette">
+        <h3>Nodes</h3>
+        <div class="palette-node" draggable="true" data-module="0">
+    <img src="images/ip.png">
+    <span>Input</span>
+</div>
+
+<div class="palette-node" draggable="true" data-module="1">
+    <img src="images/linear.png">
+    <span>Linear</span>
+</div>
+
+<div class="palette-node" draggable="true" data-module="2">
+    <img src="images/conv.png">
+    <span>Conv</span>
+</div>
+
+<div class="palette-node" draggable="true" data-module="3">
+    <img src="images/custom.png">
+    <span>Custom</span>
+</div>
+
+    </div>
+    
+
+    <!-- CANVAS -->
+    <div id="canvas">
+        <svg>
+            <defs>
+                <marker id="arrowhead" markerWidth="10" markerHeight="10"
+                        refX="9" refY="3" orient="auto">
+                    <polygon points="0 0, 10 3, 0 6" class="arrow-marker"/>
+                </marker>
+            </defs>
+        </svg>
+    </div>
+
+    <!-- SIDEBAR -->
+    <div id="sidebar">
+        <h3>Node Properties</h3>
+
+        <div class="form-group">
+            <label>Module Index</label>
+            <select id="moduleIndex">
+                <option value="">Select</option>
+                <option value="0">0 (Input)</option>
+                <option value="1">1 (Linear)</option>
+                <option value="2">2 (Conv)</option>
+                <option value="3">3 (Custom)</option>
+            </select>
+        </div>
+
+        <div id="moduleFields"></div>
+    </div>
+
+</div>
+
+<script src="app.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/python/python.min.js"></script>
+
+
+</body>
+</html>
